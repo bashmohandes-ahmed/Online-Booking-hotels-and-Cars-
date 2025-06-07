@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hotel & Car Booking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Hotel & Car Booking</h1>
+  <div class="container">
+    <div class="column">
+      <h2>Hotels</h2>
+      <ul id="hotelList">
+        <li data-type="Hotel" data-name="Blue Hotel (Cairo)" data-info="$100/night - 5 rooms available">
+          Blue Hotel (Cairo) - $100/night - 5 rooms available
+          <button onclick="selectItem(this)">Book</button>
+        </li>
+        <li data-type="Hotel" data-name="Green Hotel (Alexandria)" data-info="$120/night - 3 rooms available">
+          Green Hotel (Alexandria) - $120/night - 3 rooms available
+          <button onclick="selectItem(this)">Book</button>
+        </li>
+      </ul>
+    </div>
+    <div class="column">
+      <h2>Cars</h2>
+      <ul id="carList">
+        <li data-type="Car" data-name="Toyota Corolla" data-info="$50/day - Available">
+          Toyota Corolla - $50/day - Available
+          <button onclick="selectItem(this)">Book</button>
+        </li>
+        <li data-type="Car" data-name="Hyundai Elantra" data-info="$55/day - Available">
+          Hyundai Elantra - $55/day - Available
+          <button onclick="selectItem(this)">Book</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="bookingFormContainer" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close" onclick="closeForm()">&times;</span>
+      <h2 id="formTitle">Book</h2>
+      <form id="bookingForm" onsubmit="submitBooking(event)">
+        <input type="hidden" id="itemType">
+        <input type="hidden" id="itemName">
+        <div>
+          <label>Your Name:</label>
+          <input type="text" id="customerName" required>
+        </div>
+        <div>
+          <label>From (yyyy-mm-dd):</label>
+          <input type="date" id="dateFrom" required>
+        </div>
+        <div>
+          <label>To (yyyy-mm-dd):</label>
+          <input type="date" id="dateTo" required>
+        </div>
+        <button type="submit">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="bookings-section">
+    <h2>All Bookings</h2>
+    <ul id="bookingsList"></ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
